@@ -2,8 +2,6 @@
 
 ## time comparison between master branch and e2int
 
-IntaRNA -t CCCCCCCCGGGGGGGGGGGGGG -q CCCCCCC
-
 | target       | query            | Seed  | time master | time e2int |
 |--------------|------------------|-------|------------------| --------------- |
 | CCCCCCCCGGGGGGGGGGGGGG     | CCCCCCC   |  Y   | 15ms | 15ms |
