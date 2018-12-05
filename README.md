@@ -1,3 +1,3 @@
 # IntaRNA-log
 
-[PDF file](intaRNAlog.pdf)
+[PDF file](IntaRNAlog.pdf)
