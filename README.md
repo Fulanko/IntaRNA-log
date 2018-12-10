@@ -1,3 +1,5 @@
 # IntaRNA-log
 
-[PDF file](IntaRNAlog.pdf)
+## Recursions
+
+[PDF file](latex/intaRNAlog.pdf)

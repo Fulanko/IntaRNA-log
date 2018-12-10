@@ -1,0 +1,678 @@
+% IntaRNA
+@Article{Busch:Richter:Backofen:INTAR_effic_predi:2008,
+  author =	 {Busch, Anke and Richter, Andreas S. and Backofen, Rolf},
+  title =	 {{IntaRNA}: efficient prediction of bacterial {sRNA} targets 
+                  incorporating target site accessibility and seed regions},
+  journal =	 {Bioinformatics},
+  year =	 {2008},
+  volume =	 {24},
+  number =	 {24},
+  pages =	 {2849-56},
+  user =	 {arichter},
+  pmid =	 {18940824},
+  doi = 	 {10.1093/bioinformatics/btn544},
+  issn =	 {1367-4803},
+  abstract =	 {MOTIVATION: During the last few years, several new small 
+                  regulatory RNAs (sRNAs) have been discovered in bacteria. 
+                  Most of them act as post-transcriptional regulators by base 
+                  pairing to a target mRNA, causing translational repression 
+                  or activation, or mRNA degradation. Numerous sRNAs have 
+                  already been identified, but the number of experimentally 
+                  verified targets is considerably lower. Consequently, 
+                  computational target prediction is in great demand. Many 
+                  existing target prediction programs neglect the 
+                  accessibility of target sites and the existence of a seed, 
+                  while other approaches are either specialized to certain 
+                  types of RNAs or too slow for genome-wide searches. RESULTS: 
+                  We introduce INTARNA, a new general and fast approach to the 
+                  prediction of RNA-RNA interactions incorporating 
+                  accessibility of target sites as well as the existence of a 
+                  user-definable seed. We successfully applied INTARNA to the 
+                  prediction of bacterial sRNA targets and determined the 
+                  exact locations of the interactions with a higher accuracy 
+                  than competing programs. AVAILABILITY: 
+                  http://www.bioinf.uni-freiburg.de/Software/}
+}
+@Article{Mann_Wright_Backofen-IntaR_enhan_and-NAR2017,
+  author =	 {Mann, Martin and Wright, Patrick R. and Backofen, Rolf},
+  title =	 {{IntaRNA} 2.0: enhanced and customizable prediction of 
+                  {RNA}-{RNA} interactions},
+  journal =	 {{NAR}},
+  year =	 {2017},
+  user =	 {wrightp},
+  pmid =	 {28472523},
+  doi = 	 {10.1093/nar/gkx279},
+  issn = 	 {1362-4962},
+  abstract =	 {The IntaRNA algorithm enables fast and accurate prediction 
+                  of RNA-RNA hybrids by incorporating seed constraints and 
+                  interaction site accessibility. Here, we introduce 
+                  IntaRNAv2, which enables enhanced parameterization as well 
+                  as fully customizable control over the prediction modes and 
+                  output formats. Based on up to date benchmark data, the 
+                  enhanced predictive quality is shown and further 
+                  improvements due to more restrictive seed constraints are 
+                  highlighted. The extended web interface provides 
+                  visualizations of the new minimal energy profiles for 
+                  RNA-RNA interactions. These allow a detailed investigation 
+                  of interaction alternatives and can reveal potential 
+                  interaction site multiplicity. IntaRNAv2 is freely available 
+                  (source and binary), and distributed via the conda package 
+                  manager. Furthermore, it has been included into the Galaxy 
+                  workflow framework and its already established web interface 
+                  enables ad hoc usage.}
+}
+
+@PhdThesis{Richter-PhDThesis-2012,
+author =    {Andreas S. Richter},
+title =     {Computational analysis and prediction of {RNA-RNA} interactions},
+school =    {University of Freiburg},
+year =      {2012},
+abstract =  {In the past decade, there has been an explosion in the number of
+             identified regulatory non-protein-coding RNAs (ncRNAs). Famous
+             representatives are microRNAs in eukaryotes and small RNAs (sRNAs)
+             in bacteria, which both act as post-transcriptional regulators by
+             base pairing with messenger RNAs (mRNAs). For the functional
+             characterisation of these base-pairing ncRNAs, an understanding of
+             the principles that govern the RNA-RNA interaction formation is as
+             essential as is the availability of large-scale target
+             identification approaches. Therefore, I addressed these aspects by
+             means of computational methods and analyses.
+
+             In the first part of my thesis, I present IntaRNA, a new fast and
+             accurate method for the prediction of interactions between two RNA
+             molecules. The underlying dynamic programming algorithm
+             incorporates the structural accessibility of interaction sites and
+             the existence of an interaction seed region. Both features have a
+             significant impact on the strength of RNA-RNA interactions and thus
+             on the functionality of mRNA target sites. IntaRNA was evaluated
+             on a dataset of experimentally verified sRNA-mRNA interactions and
+             achieved the highest accuracy, of all compared methods, in terms of
+             sensitivity and positive predictive value. In a genome-wide target
+             search, IntaRNA performed as well as the best existing method, but
+             with considerably lower computing time and memory requirement. For
+             several sRNAs, I was able to predict whether the target is
+             positively or negatively regulated. IntaRNA is integrated in the
+             Freiburg RNA Tools web server to offer RNA-RNA interaction
+             prediction for specific RNAs as well as genome-wide target searches
+             via an easy to use web-based interface.
+
+             In the second part, I present the findings of a systematic analysis
+             of RNA-RNA interactions in which I determined features that
+             discriminate functional from non-functional interactions and
+             assessed the influence of these features on genome-wide target
+             predictions. For this purpose, I compiled a set of 74
+             experimentally verified sRNA-target interactions and collected
+             genome-wide full-length 5' untranslated regions. Surprisingly, I
+             found that only interaction sites in sRNAs, but not in targets,
+             displayed significant sequence conservation. The base pairing
+             complementarity between sRNAs and their targets was not conserved
+             in general across more distantly related species. In contrast to
+             conservation, structural accessibility of functional interaction
+             sites was significantly higher in both sRNAs and targets in
+             comparison to non-functional sites. Based on these observations, I
+             successfully improved the specificity of genome-wide target
+             predictions by constraining interaction seeds to highly accessible
+             regions in both RNAs or unstructured conserved sRNA regions. The
+             findings on interaction site accessibility and single-stranded
+             conserved seeds were additionally confirmed in a case study in the
+             cyanobacterium \textit{Prochlorococcus} MED4. By using an
+             ultraconserved sequence motif of the sRNA Yfr1 as seed, two novel
+             Yfr1 mRNA targets were predicted and subsequently experimentally
+             confirmed.
+
+             In the third part, I present PETcofold, a comparative method for
+             the prediction of interactions and secondary structures of two
+             multiple alignments of RNA sequences. On the premise that each of
+             the two RNAs is structurally conserved and that conservation of
+             their RNA-RNA interaction implies conserved function, PETcofold
+             accounts for covariance information arising from compensatory
+             exchanges in intra- and intermolecular base pairs. Furthermore, the
+             method can predict pseudoknots between intra- and intermolecular
+             base pairs by employing a hierarchical folding strategy. The
+             ability of PETcofold to predict RNA-RNA interactions was
+             demonstrated on a carefully curated dataset of sRNAs and their
+             target mRNAs. On phylogenetically simulated sequences enriched for
+             covariance patterns at the interaction sites, PETcofold performed
+             better with increasing amounts of covariance. For evaluation of
+             both RNA-RNA interaction and structure prediction, I exemplified
+             that the prediction is improved by the comparative approach in
+             comparison to existing single sequence-based methods.
+
+             In summary, my thesis presents a new approach for fast and accurate
+             RNA-RNA interaction prediction, one of the first systematic studies
+             on accessibility and conservation of interacting sRNAs and mRNAs,
+             the identification of two novel targets of the cyanobacterial sRNA
+             Yfr1, and the first comparative method to predict joint secondary
+             structures of two interacting RNAs.},
+user =	    {arichter}
+}
+
+
+% CopraRNA
+@PhdThesis{Wright-PhD-2016,
+author =    {Patrick R. Wright},
+title =     {Predicting small {RNA} targets in prokaryotes - a challenge beyond the barriers of thermodynamic models},
+school =    {Albert-Ludwigs-University Freiburg},
+year =      {2016},
+month =     {December},
+user =	    {wrightp},
+abstract =  {
+              Advanced high throughput sequencing of nucleic acid samples coupled with sophisticated analysis algorithms has led to the discovery of a plethora of commonly non-coding but functional short transcripts present in diverse prokaryotic genomes. These so called trans-acting small RNAs fulfill their regulatory role by directly pairing with their targets via RNA-RNA interaction. Thus, this type of regulation is termed post-transcriptional. The small RNAs can impose both up- and down regulation of targets. While the discovery of thus far unknown transcripts has become a standardized procedure, the recovery of their regulatory targets has remained challenging. For this reason RNA-RNA interaction prediction algorithms that attempt target identification at the genomic scale have been developed. Leading methods include a thermodynamic energy model and incorporate interaction site accessibility for RNA duplex prediction. These methods are generally successful at predicting the correct RNA duplex for two RNA molecules known to interact, but fail at correctly predicting targets at the whole genome level due to high false positive prediction rates. For this reason the methods presented in this thesis attempt to employ and extend the purely thermodynamic predictors. Indeed, the inclusion of phylogenetic information, pathway analysis and whole genome binding data for the RNA chaperone Hfq allow a significant reduction of false positives in the in silico prediction lists. Systematic benchmarking revealed that the newly developed algorithm CopraRNA not only outperforms other small RNA target predictors, but also rivals microarray driven experimental target prediction. Next to the convincing benchmark performance on already known RNA-RNA interactions, 23 novel, previously unreported and promising target candidates from Escherichia coli were retrieved from the CopraRNA predictions lists. Of these, 17 were experimentally confirmed in the wet-lab. This shows that the algorithm is also able to produce qualitatively new insights. Follow up studies on the rhizobial AbcR1 and EcpR1 small RNAs furthermore validate the applicability of CopraRNA beyond enterobacterial species. The algorithm has been made available as an easy to use web server interface and is being amply accessed by the research community. Finally, recent and currently unpublished results indicate that an extended version of CopraRNA may be able to detect hot spots of evolutionary diversity in post-transcriptional gene regulatory networks.
+            }
+}
+
+% McCaskill / Zuker
+@article{McCaskill,
+author = {McCaskill, J. S.},
+title = {The equilibrium partition function and base pair binding probabilities for {RNA} secondary structure},
+journal = {Biopolymers},
+volume = {29},
+number = {6-7},
+publisher = {Wiley Subscription Services, Inc., A Wiley Company},
+issn = {1097-0282},
+url = {http://dx.doi.org/10.1002/bip.360290621},
+doi = {10.1002/bip.360290621},
+pages = {1105--1119},
+year = {1990}
+}
+
+@article{Zuker,
+author = {Zuker, Michael and Stiegler, Patrick},
+title =	{Optimal computer folding of large {RNA} sequences using thermodynamics and auxiliary information.},
+journal =	 {Nucleic Acids Research 9.1},
+year =	 {1981},
+pages =	 {133-48},
+abstract =	 {This paper presents a new computer method for folding an RNA molecule that finds a conformation of minimum free energy using published values of stacking and destabilizing energies. It is based on a dynamic programming algorithm from applied mathematics, and is much more efficient, faster, and can fold larger molecules than procedures which have appeared up to now in the biological literature. Its power is demonstrated in the folding of a 459 nucleotide immunoglobulin gamma 1 heavy chain messenger RNA fragment. We go beyond the basic method to show how to incorporate additional information into the algorithm. This includes data on chemical reactivity and enzyme susceptibility. We illustrate this with the folding of two large fragments from the 16S ribosomal RNA of Escherichia coli. }
+}
+
+% RNA Strand
+@Article{Andronescu2008,
+author="Andronescu, Mirela
+and Bereg, Vera
+and Hoos, Holger H.
+and Condon, Anne",
+title="{RNA STRAND}: {The RNA Secondary Structure and Statistical Analysis Database}",
+journal="BMC Bioinformatics",
+year="2008",
+month="Aug",
+day="13",
+volume="9",
+number="1",
+pages="340",
+abstract="The ability to access, search and analyse secondary structures of a large set of known RNA molecules is very important for deriving improved RNA energy models, for evaluating computational predictions of RNA secondary structures and for a better understanding of RNA folding. Currently there is no database that can easily provide these capabilities for almost all RNA molecules with known secondary structures.",
+issn="1471-2105",
+doi="10.1186/1471-2105-9-340",
+url="https://doi.org/10.1186/1471-2105-9-340"
+}
+
+% Explains that folding happens in two steps. Motivation why we analyse single molecule structure.
+@article{Thirumalai-1998,
+author = {Thirumalai, D.},
+title = {Native secondary structure formation in {RNA} may be a slave to tertiary folding},
+volume = {95},
+number = {20},
+pages = {11506-11508},
+year = {1998},
+doi = {10.1073/pnas.95.20.11506},
+journal = {Proceedings of the National Academy of Sciences}
+}
+
+% Figure in Introduction
+@article{RNase,
+author = {Brown, JW
+and Haas, ES
+and Gilbert, DG
+and Pace, NR},
+title= {The {R}ibonuclease {P} {D}atabase},
+volume= {22},
+journal= {Nucleic Acids Research},
+pages= {3660-3662},
+year= {1994}
+}
+
+
+% RNA STRAND REST OF CITATIONS
+@article{ProteinDB,
+author = {Westbrook, J
+and Feng, Z
+and Chen, L
+and Yang, H
+and Berman, H},
+title= {{The Protein Data Bank and structural genomics}},
+volume= {31},
+journal= {Nucleic Acids Research},
+pages= {489-491},
+year= {2003}
+}
+@article{ProteinDB2,
+author = {Cannone, J
+and Subramanian, S
+and Schnare, M
+and Collett, J
+and D'Souza, L
+and Du, Y
+and Feng, B
+and Lin, N
+and Madabusi, L
+and Muller, K
+and Pande, N
+and Shang, Z
+and Yu, N
+and Gutell, R},
+title= {The comparative {RNA} web (CRW) site: an online database of comparative sequence and structure information for ribosomal, intron, and other {RNA}s},
+journal= {BMC Bioinformatics},
+pages= {3-15},
+year= {2002}
+}
+
+@article{tmRDB,
+author = {Andersen, ES
+and Rosenblad, MA
+and Larsen, N
+and Westergaard, JC
+and Burks, J
+and Wower, IK
+and Wower, J
+and Gorodkin, J
+and Samuelsson, T
+and Zwieb, C},
+title= {The tm{RDB} and {SRPDB} resources},
+volume= {34},
+journal= {Nucleic Acids Research},
+pages= {163-168},
+year= {2006}
+}
+
+@article{tRNACompilation,
+author = {Sprinzl, M
+and Vassilenko, K},
+title= {Compilation of tRNA sequences and sequences of tRNA genes},
+volume= {33},
+journal= {Nucleic Acids Research},
+pages= {139-140},
+year= {2005}
+}
+@article{RibonucleasePDB,
+author = {Brown, J},
+title= {{The Ribonuclease P Database}},
+volume= {27},
+journal= {Nucleic Acids Research},
+pages= {314-314},
+year= {1999}
+}
+@article{Rfam,
+author = {Griffiths-Jones, S
+and Moxon, S
+and Marshall, M
+and Khanna, A
+and Eddy, S
+and Bateman, A},
+title= {Rfam: annotating non-coding RNAs in complete genomes},
+volume= {33},
+journal= {Nucleic Acids Research},
+pages= {121-124},
+year= {2005}
+}
+@article{NucleicAcidDB,
+author = {Berman, HM
+and Olson, WK
+and Beveridge, DL
+and Westbrook, J
+and Gelbin, A
+and Demeny, T
+and Hsieh, SH
+and Srinivasan, AR
+and Schneider, B},
+title= {The nucleic acid database. A comprehensive relational database of three-dimensional structures of nucleic acids},
+volume= {63},
+journal= {Biophys J},
+pages= {751-759},
+year= {1992}
+}
+
+% ViennaRNA Package
+@Article{Lorenz2011,
+author="Lorenz, Ronny
+and Bernhart, Stephan H.
+and H{\"o}ner zu Siederdissen, Christian
+and Tafer, Hakim
+and Flamm, Christoph
+and Stadler, Peter F.
+and Hofacker, Ivo L.",
+title="{ViennaRNA Package} 2.0",
+journal="Algorithms for Molecular Biology",
+year="2011",
+month="Nov",
+day="24",
+volume="6",
+number="1",
+pages="26",
+abstract="Secondary structure forms an important intermediate level of description of nucleic acids that encapsulates the dominating part of the folding energy, is often well conserved in evolution, and is routinely used as a basis to explain experimental findings. Based on carefully measured thermodynamic parameters, exact dynamic programming algorithms can be used to compute ground states, base pairing probabilities, as well as thermodynamic properties.",
+issn="1748-7188",
+doi="10.1186/1748-7188-6-26",
+url="https://doi.org/10.1186/1748-7188-6-26"
+}
+
+% Principle of Maximum Entropy 
+@ARTICLE{maximumEntropy,
+   author = {{Jaynes}, E.~T.},
+    title = "{Information Theory and Statistical Mechanics}",
+  journal = {Physical Review},
+     year = 1957,
+    month = may,
+   volume = 106,
+    pages = {620-630},
+      doi = {10.1103/PhysRev.106.620},
+   adsurl = {http://adsabs.harvard.edu/abs/1957PhRv..106..620J},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+% Explains that hairpin / loop loop interactions form in tertiary structure folding
+@article{RNAfold,
+title = "{H}ow {RNA} folds",
+journal = "Journal of Molecular Biology",
+volume = "293",
+number = "2",
+pages = "271 - 281",
+year = "1999",
+issn = "0022-2836",
+doi = "https://doi.org/10.1006/jmbi.1999.3001",
+url = "http://www.sciencedirect.com/science/article/pii/S0022283699930012",
+author = "Ignacio Tinoco and Carlos Bustamante",
+keywords = "RNA folding, RNA secondary structure, RNA tertiary structure, atomic force microscopy"
+}
+
+% RNAup
+@article{RNAup,
+author = {Mückstein, Ulrike and Tafer, Hakim and Hackermüller, Jörg and Bernhart, Stephan H. and Stadler, Peter F. and Hofacker, Ivo L.},
+title = {{T}hermodynamics of {RNA–RNA} binding},
+journal = {Bioinformatics},
+volume = {22},
+number = {10},
+pages = {1177-1182},
+year = {2006},
+doi = {10.1093/bioinformatics/btl024},
+URL = { + http://dx.doi.org/10.1093/bioinformatics/btl024},
+eprint = {/oup/backfile/content_public/journal/bioinformatics/22/10/10.1093/bioinformatics/btl024/2/btl024.pdf}
+}
+
+% miRNA seeds
+@article{Bentwich,
+author = {Bentwich Isaac},
+title = {{P}rediction and validation of micro{RNA}s and their targets},
+journal = {{FEBS} {L}etters},
+year = {2005},
+volume = {579},
+number = {26},
+pages = {5904-5910},
+keywords = {MicroRNA, Target, Prediction, Algorithms, Validation},
+doi = {10.1016/j.febslet.2005.09.040},
+url = {https://febs.onlinelibrary.wiley.com/doi/abs/10.1016/j.febslet.2005.09.040},
+eprint = {https://febs.onlinelibrary.wiley.com/doi/pdf/10.1016/j.febslet.2005.09.040},
+abstract = {MicroRNAs are short non‐coding RNAs that inhibit translation of target genes by binding to their mRNAs, and have been shown to play a central role in gene regulation in health and disease. Sophisticated computer‐based prediction approaches of microRNAs and of their targets, and effective biological validation techniques for validating these predictions, now play a central role in discovery of microRNAs and elucidating their functions.}
+}
+
+@Article{Doench,
+   Author="Doench, J. G.  and Sharp, P. A. ",
+   Title="{{S}pecificity of micro{R}{N}{A} target selection in translational repression}",
+   Journal="Genes Dev.",
+   Year="2004",
+   Volume="18",
+   Number="5",
+   Pages="504--511",
+   Month="Mar"
+}
+@Article{Brennecke,
+   Author="Brennecke, J.  and Stark, A.  and Russell, R. B.  and Cohen, S. M. ",
+   Title="{{P}rinciples of micro{R}{N}{A}-target recognition}",
+   Journal="PLoS Biol.",
+   Year="2005",
+   Volume="3",
+   Number="3",
+   Pages="e85",
+   Month="Mar"
+}
+
+% seed in sRNA
+@Article{Bouvier,
+   Author="Bouvier, M.  and Sharma, C. M.  and Mika, F.  and Nierhaus, K. H.  and Vogel, J. ",
+   Title="{{S}mall {R}{N}{A} binding to 5' m{R}{N}{A} coding region inhibits translational initiation}",
+   Journal="Mol. Cell",
+   Year="2008",
+   Volume="32",
+   Number="6",
+   Pages="827--837",
+   Month="Dec"
+}
+
+
+% sRNA picture 
+@Article{Vazquez2013,
+   Author="Vazquez-Anderson, J.  and Contreras, L. M. ",
+   Title="{{R}egulatory {R}{N}{A}s: charming gene management styles for synthetic biology applications}",
+   Journal="RNA Biol",
+   Year="2013",
+   Volume="10",
+   Number="12",
+   Pages="1778--1797",
+   Month="Dec"
+}
+
+% GenBank
+@Article{GenBank,
+   Author="Benson, D. A.  and Karsch-Mizrachi, I.  and Lipman, D. J.  and Ostell, J.  and Wheeler, D. L. ",
+   Title="{{G}en{B}ank}",
+   Journal="Nucleic Acids Res.",
+   Year="2008",
+   Volume="36",
+   Number="Database issue",
+   Pages="25--30",
+   Month="Jan"
+}
+
+% Evaluation
+@Article{Tjaden,
+   Author="Tjaden, B.  and Goodwin, S. S.  and Opdyke, J. A.  and Guillier, M.  and Fu, D. X.  and Gottesman, S.  and Storz, G. ",
+   Title="{{T}arget prediction for small, noncoding {R}{N}{A}s in bacteria}",
+   Journal="Nucleic Acids Res.",
+   Year="2006",
+   Volume="34",
+   Number="9",
+   Pages="2791--2802"
+}
+
+% Energy parameters
+@article{Mathews,
+title = "{E}xpanded sequence dependence of thermodynamic parameters improves prediction of {RNA} secondary structure",
+journal = "{J}ournal of {M}olecular {B}iology",
+volume = "288",
+number = "5",
+pages = "911 - 940",
+year = "1999",
+issn = "0022-2836",
+doi = "https://doi.org/10.1006/jmbi.1999.2700",
+url = "http://www.sciencedirect.com/science/article/pii/S0022283699927006",
+author = "David H. Mathews and Jeffrey Sabina and Michael Zuker and Douglas H. Turner",
+keywords = "RNA secondary structure, nearest neighbor parameters, free energy minimization, enzymatic cleavage, flavin mononucleotide cleavage"
+}
+
+% image Energie summation
+@misc{Durbin,
+author={Durbin, R. and Eddy, S. and Krogh, A. and Mitchison, G.},
+title={{Biological Sequence Analysis}},
+year={2002}
+}
+
+% Nearest neighbor database
+@article{NNDB,
+author = {Turner, Douglas H. and Mathews, David H.},
+title = {{NNDB}: the nearest neighbor parameter database for predicting stability of nucleic acid secondary structure},
+journal = {Nucleic Acids Research},
+volume = {38},
+pages = {D280-D282},
+year = {2010},
+doi = {10.1093/nar/gkp892},
+URL = {http://dx.doi.org/10.1093/nar/gkp892}
+}
+
+% helical stability
+@article{Devoe,
+title = "{T}he stability of helical polynucleotides: {B}ase contributions",
+journal = "{J}ournal of {M}olecular {B}iology",
+volume = "4",
+number = "6",
+pages = "500 - 517",
+year = "1962",
+issn = "0022-2836",
+doi = "https://doi.org/10.1016/S0022-2836(62)80105-3",
+url = "http://www.sciencedirect.com/science/article/pii/S0022283662801053",
+author = {Howard DeVoe and Ignacio Tinoco}
+}
+
+% Nearest Neighbor
+@article{Borer,
+title = "Stability of ribonucleic acid double-stranded helices",
+journal = "Journal of Molecular Biology",
+volume = "86",
+number = "4",
+pages = "843 - 853",
+year = "1974",
+issn = "0022-2836",
+doi = "https://doi.org/10.1016/0022-2836(74)90357-X",
+url = "http://www.sciencedirect.com/science/article/pii/002228367490357X",
+author = "Philip N. Borer and Barbara Dengler and Ignacio Tinoco and Olke C. Uhlenbeck"
+}
+% RNA Pseudoknots
+@misc{RNAPseudo,
+author = {Condon, Anne and Davy, Beth and Rastegari, Baharak and Zhao, Shelly and Tarrant, Finbarr},
+year = {2004},
+month = {06},
+pages = {35-50},
+title = {Classifying {RNA} {P}seudoknotted {S}tructures},
+volume = {320},
+booktitle = {Theoretical Computer Science}
+}
+
+% UNAFold
+@Inbook{UNAFold,
+author="Markham, Nicholas R.
+and Zuker, Michael",
+title="UNAFold",
+bookTitle="Bioinformatics: Structure, Function and Applications",
+year="2008",
+publisher="Humana Press",
+address="Totowa, NJ",
+pages="3--31",
+abstract="The UNAFold software package is an integrated collection of programs that simulate folding, hybridization, and melting pathways for one or two single-stranded nucleic acid sequences. The name is derived from ``Unified Nucleic Acid Folding.'' Folding (secondary structure) prediction for single-stranded RNA or DNA combines free energy minimization, partition function calculations and stochastic sampling. For melting simulations, the package computes entire melting profiles, not just melting temperatures. UV absorbance at 260 nm, heat capacity change (Cp), and mole fractions of different molecular species are computed as a function of temperature. The package installs and runs on all Unix and Linux platforms that we have looked at, including Mac OS X. Images of secondary structures, hybridizations, and dot plots may be computed using common formats. Similarly, a variety of melting profile plots is created when appropriate. These latter plots include experimental results if they are provided. The package is ``command line'' driven. Underlying compiled programs may be used individually, or in special combinations through the use of a variety of Perl scripts. Users are encouraged to create their own scripts to supplement what comes with the package. This evolving software is available for download at                   http://www.bioinfo.rpi.edu/applications/hybrid/download.php                                  .",
+isbn="978-1-60327-429-6",
+doi="10.1007/978-1-60327-429-6_1",
+url="https://doi.org/10.1007/978-1-60327-429-6_1"
+}
+
+   
+% Related works
+@Article{UmuGardner,
+   Author="Umu, S. U.  and Gardner, P. P. ",
+   Title="{{A} comprehensive benchmark of {R}{N}{A}-{R}{N}{A} interaction prediction tools for all domains of life}",
+   Journal="Bioinformatics",
+   Year="2017",
+   Volume="33",
+   Number="7",
+   Pages="988--996",
+   Month="04"
+}
+
+@Article{LaiMeyer,
+   Author="Lai, D.  and Meyer, I. M. ",
+   Title="{{A} comprehensive comparison of general {R}{N}{A}-{R}{N}{A} interaction prediction methods}",
+   Journal="Nucleic Acids Res.",
+   Year="2016",
+   Volume="44",
+   Number="7",
+   Pages="e61",
+   Month="Apr"
+}
+
+@Article{RNAPlex,
+   Author="Tafer, H.  and Hofacker, I. L. ",
+   Title="{RNA}plex: a fast tool for {R}{N}{A}-{R}{N}{A} interaction search",
+   Journal="Bioinformatics",
+   Year="2008",
+   Volume="24",
+   Number="22",
+   Pages="2657--2663",
+   Month="Nov"
+}
+
+@Article{Accessfold,
+   Author="DiChiacchio, L.  and Sloma, M. F.  and Mathews, D. H. ",
+   Title="{{A}ccess{F}old: predicting {R}{N}{A}-{R}{N}{A} interactions with consideration for competing self-structure}",
+   Journal="Bioinformatics",
+   Year="2016",
+   Volume="32",
+   Number="7",
+   Pages="1033--1039",
+   Month="04"
+}
+
+@Article{Risearch2,
+   Author="Alkan, F.  and Wenzel, A.  and Palasca, O.  and Kerpedjiev, P.  and Rudebeck, A. F.  and Stadler, P. F.  and Hofacker, I. L.  and Gorodkin, J. ",
+   Title="{{R}{I}search2: suffix array-based large-scale prediction of {R}{N}{A}-{R}{N}{A} interactions and si{R}{N}{A} off-targets}",
+   Journal="Nucleic Acids Res.",
+   Year="2017",
+   Volume="45",
+   Number="8",
+   Pages="e60",
+   Month="May"
+}
+@Article{RIsearch,
+   Author="Wenzel, A.  and Akbasli, E.  and Gorodkin, J. ",
+   Title="{{R}{I}search: fast {R}{N}{A}-{R}{N}{A} interaction search using a simplified nearest-neighbor energy model}",
+   Journal="Bioinformatics",
+   Year="2012",
+   Volume="28",
+   Number="21",
+   Pages="2738--2746",
+   Month="Nov"
+}
+
+@Article{Riblast,
+   Author="Fukunaga, T.  and Hamada, M. ",
+   Title="{{R}{I}blast: an ultrafast {R}{N}{A}-{R}{N}{A} interaction prediction system based on a seed-and-extension approach}",
+   Journal="Bioinformatics",
+   Year="2017",
+   Volume="33",
+   Number="17",
+   Pages="2666--2674",
+   Month="Sep"
+}
+
+@Article{Gotoh,
+   Author="Gotoh, O. ",
+   Title="{{A}n improved algorithm for matching biological sequences}",
+   Journal="J. Mol. Biol.",
+   Year="1982",
+   Volume="162",
+   Number="3",
+   Pages="705--708",
+   Month="Dec"
+}
+
+@Article{AndronescuParameters,
+   Author="Andronescu, M.  and Condon, A.  and Hoos, H. H.  and Mathews, D. H.  and Murphy, K. P. ",
+   Title="{{C}omputational approaches for {R}{N}{A} energy parameter estimation}",
+   Journal="RNA",
+   Year="2010",
+   Volume="16",
+   Number="12",
+   Pages="2304--2318",
+   Month="Dec"
+}
+
+@misc{ELearning,
+author="Raden, M. and Backofen, R.",
+title="{Lecture Material: RNA Bioinformatics}",
+year="2018"
+}
+
+
+
