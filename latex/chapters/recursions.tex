@@ -19,7 +19,13 @@ General energy computation:
 E(\substack{i_1,j_1\\i_2,j_2}) = E_{h}(\substack{i_1,j_1\\i_2,j_2}) + ED_{1}(\substack{i_1\\j_1}) + ED_{2}(\substack{i_2\\j_2})
 \end{equation*}
 
-Optimization task: [TODO]
+Optimization task:
+\begin{equation*}
+\min\limits_{\substack{j_{1}-i_{1} <= N\\j_{2}-i_{2} <= N}}
+\begin{pmatrix}
+E_{h}(\substack{i_1,j_1\\i_2,j_2})
+\end{pmatrix}\\
+\end{equation*}
 
 \subsection{Initialization}
 
