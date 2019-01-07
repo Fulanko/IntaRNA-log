@@ -92,7 +92,7 @@ E_L(\substack{i_1\\i_2}) = \begin{cases}
 \quad\text{: if } \text{ no matching base pair }\\
 \min\limits_{\substack{l_{1} - i_{1} - 1 <= M\\l_{2} - i_{2} - 1 <= M}}
 \begin{pmatrix}
-E_L(\substack{l_1\\l_2}) + E_{loop}(\substack{i_1,l_1\\i_2,l_2})
+E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_L(\substack{l_1\\l_2})
 \end{pmatrix}\\
 \quad\text{: otherwise.}\\
 
@@ -106,7 +106,7 @@ E_R(\substack{j_1\\j_2}) = \begin{cases}
 \quad\text{: if } \text{ no matching base pair }\\
 \min\limits_{\substack{j_{1}-r_{1}-1 <= M\\j_{2}-r_{2}-1 <= M}}
 \begin{pmatrix}
-E_{loop}(\substack{r_1,j_1\\r_2,j_2}) + E_R(\substack{r_1\\r_2})
+E_R(\substack{r_1\\r_2}) + E_{loop}(\substack{r_1,j_1\\r_2,j_2})
 \end{pmatrix}\\
 \quad\text{: otherwise.}\\
 
