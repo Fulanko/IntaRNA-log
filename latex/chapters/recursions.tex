@@ -16,26 +16,29 @@ General energy computation:
 \end{figure}
 
 \begin{equation*}
-E(\substack{i_1,j_1\\i_2,j_2}) = E_{h}(\substack{i_1,j_1\\i_2,j_2}) + ED_{1}(\substack{i_1\\j_1}) + ED_{2}(\substack{i_2\\j_2})
+E(\substack{i_1,j_1\\i_2,j_2}) = E_{h}^{seed}(\substack{i_1,j_1\\i_2,j_2}) + ED_{1}(\substack{i_1\\j_1}) + ED_{2}(\substack{i_2\\j_2})
 \end{equation*}
 
 Optimization task:
 \begin{equation*}
-\min\limits_{\substack{j_{1}-i_{1} <= N\\j_{2}-i_{2} <= N}}
+\min\limits_{seed}
+\min\limits_{\substack{j_{1}-i_{1} \le N\\j_{2}-i_{2} \le N}}
 \begin{pmatrix}
-E_{h}(\substack{i_1,j_1\\i_2,j_2})
+E_{h}^{seed}(\substack{i_1,j_1\\i_2,j_2})
 \end{pmatrix}\\
 \end{equation*}
 
 \subsection{Initialization}
 
 \begin{equation*}
-\underset{{\substack{si_1 <= i_{1} <= j_{1} <= sj_{1}\\si_2 <= i_{2} <= j_{2} <= sj_{2}}}}{\forall} E_h(\substack{i_1,j_1\\i_2,j_2}) = \infty
+\underset{{\substack{si_1 \le i_{1} \le j_{1} \le sj_{1}\\si_2 \le i_{2} \le j_{2} \le sj_{2}}}}{\forall} E_{h}^{seed}(\substack{i_1,j_1\\i_2,j_2}) = \infty
 \end{equation*}
 
 \begin{equation*}
-E_h(\substack{si_1,sj_1\\si_2,sj_2}) = E_{seed}
+E_{h}^{seed}(\substack{si_1,sj_1\\si_2,sj_2}) = E_{seed}
 \end{equation*}
+
+With $E_{seed}$ including $E_{init}$.
 
 \clearpage
 
@@ -48,17 +51,17 @@ E_h(\substack{si_1,sj_1\\si_2,sj_2}) = E_{seed}
 
 \begin{equation*}
 \substack{
-  \underset{\substack{si_{1}-N <= i_{1} <= si_{1}\\si_{2}-N <= i_{2} <= si_{2}}}{\forall}\\
-  \underset{\substack{sj_{1} <= j_{1} <= sj_{1}+N\\sj_{2} <= j_{2} <= sj_{2}+N}}{\forall}
+  \underset{\substack{si_{1}-N \le i_{1} \le si_{1}\\si_{2}-N \le i_{2} \le si_{2}}}{\forall}\\
+  \underset{\substack{sj_{1} \le j_{1} \le sj_{1}+N\\sj_{2} \le j_{2} \le sj_{2}+N}}{\forall}
 }
-E_h(\substack{i_1,j_1\\i_2,j_2}) = \begin{cases}
+E_{h}^{seed}(\substack{i_1,j_1\\i_2,j_2}) = \begin{cases}
   \infty\\
   \quad\text{: if } \text{ no matching base pair }\\
   \infty\\
   \quad\text{: if } j_{1} - i_{1} > N \text{ oder } j_{2} - i_{2} > N\\
-  \min\limits_{\substack{i_{1} < l_{1} <= r_{1} < j_{1}\\i_{2} < l_{2} <= r_{2} < j_{2}\\l_{1} - i_{1} - 1 <= M\\j_{1}-r_{1}-1 <= M\\l_{2} - i_{2} - 1 <= M\\j_{2}-r_{2}-1 <= M}}
+  \min\limits_{\substack{i_{1} < l_{1} \le r_{1} < j_{1}\\i_{2} < l_{2} \le r_{2} < j_{2}\\l_{1} - i_{1} - 1 \le M\\j_{1}-r_{1}-1 \le M\\l_{2} - i_{2} - 1 \le M\\j_{2}-r_{2}-1 \le M}}
   \begin{pmatrix}
-	E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_h(\substack{l_1,r_1\\l_2,r_2}) + E_{loop}(\substack{r_1,j_1\\r_2,j_2})
+	E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_{h}^{seed}(\substack{l_1,r_1\\l_2,r_2}) + E_{loop}(\substack{r_1,j_1\\r_2,j_2})
   \end{pmatrix}\\
   \quad\text{: otherwise.}\\
   
@@ -75,7 +78,7 @@ E_h(\substack{i_1,j_1\\i_2,j_2}) = \begin{cases}
 \end{figure}
 
 \begin{equation*}
-E_h(\substack{i_1,j_1\\i_2,j_2}) = \begin{cases}
+E_{h}^{seed}(\substack{i_1,j_1\\i_2,j_2}) = \begin{cases}
 \infty\\
 \quad\text{: if } j_{1} - i_{1} > N \text{ oder } j_{2} - i_{2} > N\\
 \begin{pmatrix}
@@ -86,11 +89,11 @@ E_{L}(\substack{i_1\\i_2}) + E_{seed} + E_{R}(\substack{j_1\\j_2})
 \end{equation*}
 
 \begin{equation*}
-\underset{\substack{si_{1}-N <= i_{1} <= si_{1}\\si_{2}-N <= i_{2} <= si_{2}}}{\forall}\\
+\underset{\substack{si_{1}-N \le i_{1} \le si_{1}\\si_{2}-N \le i_{2} \le si_{2}}}{\forall}\\
 E_L(\substack{i_1\\i_2}) = \begin{cases}
 \infty\\
 \quad\text{: if } \text{ no matching base pair }\\
-\min\limits_{\substack{l_{1} - i_{1} - 1 <= M\\l_{2} - i_{2} - 1 <= M}}
+\min\limits_{\substack{l_{1} - i_{1} - 1 \le M\\l_{2} - i_{2} - 1 \le M}}
 \begin{pmatrix}
 E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_L(\substack{l_1\\l_2})
 \end{pmatrix}\\
@@ -100,11 +103,11 @@ E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_L(\substack{l_1\\l_2})
 \end{equation*}
 
 \begin{equation*}
-\underset{\substack{sj_{1} <= j_{1} <= sj_{1}+N\\sj_{2} <= j_{2} <= sj_{2}+N}}{\forall}
+\underset{\substack{sj_{1} \le j_{1} \le sj_{1}+N\\sj_{2} \le j_{2} \le sj_{2}+N}}{\forall}
 E_R(\substack{j_1\\j_2}) = \begin{cases}
 \infty\\
 \quad\text{: if } \text{ no matching base pair }\\
-\min\limits_{\substack{j_{1}-r_{1}-1 <= M\\j_{2}-r_{2}-1 <= M}}
+\min\limits_{\substack{j_{1}-r_{1}-1 \le M\\j_{2}-r_{2}-1 \le M}}
 \begin{pmatrix}
 E_R(\substack{r_1\\r_2}) + E_{loop}(\substack{r_1,j_1\\r_2,j_2})
 \end{pmatrix}\\
