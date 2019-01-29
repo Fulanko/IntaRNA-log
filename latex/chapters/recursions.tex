@@ -38,7 +38,7 @@ E_{h}^{seed}(\substack{i_1,j_1\\i_2,j_2})
 E_{h}^{seed}(\substack{si_1,sj_1\\si_2,sj_2}) = E_{seed}
 \end{equation*}
 
-With $E_{seed}$ including $E_{init}$.
+with $E_{seed}$ including $E_{init}$.
 
 \clearpage
 
@@ -115,4 +115,45 @@ E_R(\substack{r_1\\r_2}) + E_{loop}(\substack{r_1,j_1\\r_2,j_2})
 
 \end{cases}
 \end{equation*}
+
+\clearpage
+
+\subsection{Recursion 3 ($O(N^{2})$ space + $O(N^{2})$ time)}
+
+First find j1 and j2 that minimize right side. Call them $j_{1opt}$ and $j_{2opt}$. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.65]{seedenergy3.png}
+\end{figure}
+
+\begin{equation*}
+\underset{j1, j2}{\arg\min}
+\begin{pmatrix}
+E_{seed} + E_{R}(\substack{sj_1,j_1\\sj_2,j_2})
+\end{pmatrix}\\
+\end{equation*}
+
+with $E_{R}$ defined as in Recursion 2.\\
+Then minimize over entire interaction up to $j_{1opt}$ and $j_{2opt}$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.65]{seedenergy4.png}
+\end{figure}
+
+\begin{equation*}
+\underset{\substack{si_{1}-N \le i_{1} \le j_{1opt}\\si_{2}-N \le i_{2} \le j_{2opt}}}{\forall}\\
+E_{h}^{seed}(\substack{i_1, j_{1opt}\\i_2, j_{2opt}}) = \begin{cases}
+\infty\\
+\quad\text{: if } \text{ no matching base pair }\\
+\min\limits_{\substack{l_{1} - i_{1} - 1 \le M\\l_{2} - i_{2} - 1 \le M}}
+\begin{pmatrix}
+E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_{h}^{seed}(\substack{l_1,j_{1opt}\\l_2,j_{2opt}})
+\end{pmatrix}\\
+\quad\text{: otherwise.}\\
+
+\end{cases}
+\end{equation*}
+
 
