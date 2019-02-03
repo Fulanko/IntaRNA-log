@@ -143,17 +143,28 @@ Then minimize over entire interaction up to $j_{1opt}$ and $j_{2opt}$.
 \end{figure}
 
 \begin{equation*}
-\underset{\substack{si_{1}-N \le i_{1} \le j_{1opt}\\si_{2}-N \le i_{2} \le j_{2opt}}}{\forall}\\
-E_{h}^{seed}(\substack{i_1, j_{1opt}\\i_2, j_{2opt}}) = \begin{cases}
+\underset{\substack{si_{1}-N \le i_{1} \le j_{1}\\si_{2}-N \le i_{2} \le j_{2}}}{\forall}\\
+E_{h}^{seed}(\substack{i_1, j_1\\i_2, j_2}) = \begin{cases}
 \infty\\
-\quad\text{: if } \text{ no matching base pair }\\
+\quad\text{: if } \text{ no matching base pair or $j_1 \neq j_{1opt}$ or $j_2 \neq j_{2opt}$ }\\
 \min\limits_{\substack{l_{1} - i_{1} - 1 \le M\\l_{2} - i_{2} - 1 \le M}}
 \begin{pmatrix}
-E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_{h}^{seed}(\substack{l_1,j_{1opt}\\l_2,j_{2opt}})
+E_{loop}(\substack{i_1,l_1\\i_2,l_2}) + E_{L}(\substack{l_1\\l_2}) + E_{seed} + E_{R}(\substack{j_{1opt}\\j_{2opt}})
 \end{pmatrix}\\
 \quad\text{: otherwise.}\\
 
 \end{cases}
 \end{equation*}
+
+with $E_{L}$ and $E_{R}$ defined as in Recursion 2.\\
+
+\clearpage
+
+\subsection{Recursion 4 (ideas from RiBlast2)}
+
+* extend left + right without gaps\\
+* extend left + right with gaps\\
+* use approximated accessibility energies\\
+* ....
 
 
