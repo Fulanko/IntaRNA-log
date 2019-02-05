@@ -12,5 +12,5 @@
 
 ## Predictor performace
 
-[Performance](plot.pdf)
+[Performance](plot.pdf)  
 [Time + Memory](plot_info.pdf)
