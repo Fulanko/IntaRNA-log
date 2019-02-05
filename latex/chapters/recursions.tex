@@ -165,6 +165,27 @@ with $E_{L}$ and $E_{R}$ defined as in Recursion 2.\\
 * extend left + right without gaps\\
 * extend left + right with gaps\\
 * use approximated accessibility energies\\
-* ....
 
+\subsubsection{Gapless extension}
 
+Given a seed, RiBlast first extends the interaction to the left and right of the seed without gaps.
+If target and query nucleotides can pair, the new interaction energy is calculated. If it is lower than the present minimum, then the minimum is updated and the extension continues. If the minimum does not change for $drop\_out\_length\_wo\_gap$ steps, then the extension stops with $drop\_out\_length\_wo\_gap$ being an input parameter.
+\\\\
+Default $drop\_out\_length\_wo\_gap = 5$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.65]{riblast1.png}
+\end{figure}
+
+Example of gapless extension. The red lines indicate the range of extension. Here $drop\_out\_length\_wo\_gap$ is set to 2, meaning that the extension is stopped if the minimal energy does not improve after 2 steps.
+
+\subsubsection{Gapped extension}
+
+After the gapless extension finished, RiBlast does a second extension. This time gaps are allowed. Again the minimum interaction energy is updated if a lower energy is found. If the minimum does not change for $drop\_out\_length\_w\_gap$ steps, then the extension stops with $drop\_out\_length\_w\_gap$ being an input parameter.
+\\\\
+Default $drop\_out\_length\_w\_gap = 16$.
+
+\subsubsection{Accessibility energy}
+
+RiBlast uses approximated accessibility energies as proposed in RNAplex-a.
