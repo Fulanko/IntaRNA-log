@@ -9,3 +9,8 @@
 ## Recursions
 
 [PDF file](latex/IntaRNAlog.pdf)
+
+## Predictor performace
+
+[Performance](plot.pdf)  
+[Time + Memory](plot_info.pdf)
