@@ -42,7 +42,7 @@ with $E_{seed}$ including $E_{init}$.
 
 \clearpage
 
-\subsection{Recursion 1 ($O(N^{4})$ space + time)}
+\subsection{Exact naive method ($O(N^{4})$ space + time)}
 
 \begin{figure}[H]
 	\centering
@@ -70,7 +70,7 @@ E_{h}^{seed}(\substack{i_1,j_1\\i_2,j_2}) = \begin{cases}
 
 \clearpage
 
-\subsection{Recursion 2 ($O(N^{2})$ space + $O(N^{4})$ time)}
+\subsection{Exact memory efficient method ($O(N^{2})$ space + $O(N^{4})$ time)}
 
 \begin{figure}[H]
 	\centering
@@ -118,7 +118,27 @@ E_R(\substack{r_1\\r_2}) + E_{loop}(\substack{r_1,j_1\\r_2,j_2})
 
 \clearpage
 
-\subsection{Recursion 3 ($O(N^{2})$ space + $O(N^{2})$ time)}
+\subsubsection{Exact method (memory efficient) results}
+
+Parameters:\\
+exact: --pred X -m M --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+exact\_ensemble: --pred E -m M --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+
+\begin{figure}[H]
+	\centering
+	\caption{Performance}
+	\includegraphics[scale=0.41]{plot_exact.pdf}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Time \& memory}
+	\includegraphics[scale=0.41]{plot_exact_info.pdf}
+\end{figure}
+
+\clearpage
+
+\subsection{Heuristic method ($O(N^{2})$ space + $O(N^{2})$ time)}
 
 First find j1 and j2 that minimize right side. Call them $j_{1opt}$ and $j_{2opt}$. 
 
@@ -160,16 +180,35 @@ with $E_{L}$ and $E_{R}$ defined as in Recursion 2.\\
 
 \clearpage
 
-\subsection{Recursion 4 (ideas from RiBlast2)}
+\subsubsection{Heuristic method results}
+
+Parameters:\\
+heuristic: --pred X -m H --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+heuristic\_ensemble: --pred E -m H --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+
+\begin{figure}[H]
+	\centering
+	\caption{Performance}
+	\includegraphics[scale=0.41]{plot_heuristic.pdf}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Time \& memory}
+	\includegraphics[scale=0.41]{plot_heuristic_info.pdf}
+\end{figure}
+
+\clearpage
+
+\subsection{RiBlast method}
 
 * extend left + right without gaps\\
 * extend left + right with gaps\\
 * use approximated accessibility energies\\
 
-\subsubsection{Gapless extension}
+\subsubsection{Parallel extension}
 
-Given a seed, RiBlast first extends the interaction to the left and right of the seed without gaps.
-If target and query nucleotides can pair, the new interaction energy is calculated. If it is lower than the present minimum, then the minimum is updated and the extension continues. If the minimum does not change for $drop\_out\_length\_wo\_gap$ steps, then the extension stops with $drop\_out\_length\_wo\_gap$ being an input parameter.
+Given a seed, RiBlast first extends the interaction to the left and right of the seed without gaps. This means that we linearly loop over both sequences at the same time. If target and query nucleotides can pair, the new interaction energy is calculated. If it is lower than the present minimum, then the minimum is updated and the extension continues. If the minimum does not change for $drop\_out\_length\_wo\_gap$ steps, then the extension stops with $drop\_out\_length\_wo\_gap$ being an input parameter.
 \\\\
 Default $drop\_out\_length\_wo\_gap = 5$.
 
@@ -180,9 +219,9 @@ Default $drop\_out\_length\_wo\_gap = 5$.
 
 Example of gapless extension. The red lines indicate the range of extension. Here $drop\_out\_length\_wo\_gap$ is set to 2, meaning that the extension is stopped if the minimal energy does not improve after 2 steps.
 
-\subsubsection{Gapped extension}
+\subsubsection{Thorough extension}
 
-After the gapless extension finished, RiBlast does a second extension. This time gaps are allowed. Again the minimum interaction energy is updated if a lower energy is found. If the minimum does not change for $drop\_out\_length\_w\_gap$ steps, then the extension stops with $drop\_out\_length\_w\_gap$ being an input parameter.
+After the parallel extension finished, RiBlast does a second extension. This time gaps are allowed. This means that we loop over both sequences independently, resulting in a quadratic complexity. Again the minimum interaction energy is updated if a lower energy is found. If the minimum does not change for $drop\_out\_length\_w\_gap$ steps, then the extension stops with $drop\_out\_length\_w\_gap$ being an input parameter.
 \\\\
 Default $drop\_out\_length\_w\_gap = 16$.
 
