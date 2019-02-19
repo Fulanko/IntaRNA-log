@@ -121,19 +121,20 @@ E_R(\substack{r_1\\r_2}) + E_{loop}(\substack{r_1,j_1\\r_2,j_2})
 \subsubsection{Exact method (memory efficient) results}
 
 Parameters:\\
-exact: --pred X -m M --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
-exact\_ensemble: --pred E -m M --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+master\_20: --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+memory\_efficient\_20: --pred X -m M --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+memory\_efficient\_ensemble\_20: --pred E -m M --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
 
 \begin{figure}[H]
 	\centering
 	\caption{Performance}
-	\includegraphics[scale=0.41]{plot_exact.pdf}
+	\includegraphics[scale=0.41]{memory_efficient_20.pdf}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\caption{Time \& memory}
-	\includegraphics[scale=0.41]{plot_exact_info.pdf}
+	\includegraphics[scale=0.41]{memory_efficient_20_info.pdf}
 \end{figure}
 
 \clearpage
@@ -183,19 +184,20 @@ with $E_{L}$ and $E_{R}$ defined as in Recursion 2.\\
 \subsubsection{Heuristic method results}
 
 Parameters:\\
-heuristic: --pred X -m H --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
-heuristic\_ensemble: --pred E -m H --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+master\_20: --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+heuristic\_20: --pred X -m H --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+heuristic\_ensemble\_20: --pred E -m H --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
 
 \begin{figure}[H]
 	\centering
 	\caption{Performance}
-	\includegraphics[scale=0.41]{plot_heuristic.pdf}
+	\includegraphics[scale=0.41]{heuristic_20.pdf}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\caption{Time \& memory}
-	\includegraphics[scale=0.41]{plot_heuristic_info.pdf}
+	\includegraphics[scale=0.41]{heuristic_20_info.pdf}
 \end{figure}
 
 \clearpage
@@ -226,5 +228,25 @@ After the parallel extension finished, RiBlast does a second extension. This tim
 Default $drop\_out\_length\_w\_gap = 16$.
 
 \subsubsection{Accessibility energy}
+
+\clearpage
+
+\subsubsection{RiBlast method results}
+
+Parameters:\\
+master\_20: --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+riblast\_20: --pred X -m R --qIntLenMax 20 --tIntLenMax 20 --threads 8\\
+
+\begin{figure}[H]
+	\centering
+	\caption{Performance}
+	\includegraphics[scale=0.41]{riblast_20.pdf}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Time \& memory}
+	\includegraphics[scale=0.41]{riblast_20_info.pdf}
+\end{figure}
 
 RiBlast uses approximated accessibility energies as proposed in RNAplex-a.
