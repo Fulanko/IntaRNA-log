@@ -1,6 +1,21 @@
 # Plots
 
-## generated using script:
+## Exact, memory-efficient length-dependent
+[Performance](./plots/exact_length.pdf)  
+[Runtime](./plots/exact_length_runtime.pdf)  
+[Memory](./plots/exact_length_memory.pdf)  
+
+## Heuristic length-dependent
+[Performance](./plots/heuristic_length.pdf)  
+[Runtime](./plots/heuristic_length_runtime.pdf)  
+[Memory](./plots/heuristic_length_memory.pdf)  
+
+## Riblast length-dependent
+[Performance](./plots/riblast_length.pdf)  
+[Runtime](./plots/riblast_length_runtime.pdf)  
+[Memory](./plots/riblast_length_memory.pdf)  
+
+## Data generation script
 
 ```[bash]
 #########################################################################
@@ -29,7 +44,7 @@ echo "qsub -pe smp 24 -o /scratch/bi03/gelhausr/intaRNA/IntaRNA-benchmark/sge-ou
 } 
 
 #########################################################################
-# calls 190319
+# calls 190403
 #########################################################################
 (
 
