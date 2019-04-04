@@ -5,12 +5,10 @@
 [Performance](e2int/performance.pdf)  
 [Time & memory consumption](e2int/time_memory.pdf)
 
-
 ## Recursions
 
 [PDF file](latex/IntaRNAlog.pdf)
 
-## Predictor performace
+## Results
 
-[Performance](plot.pdf)  
-[Time + Memory](plot_info.pdf)
+[Plots](./plots)  
